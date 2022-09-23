@@ -10,18 +10,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Class responsible for create a csv file
+ */
 public class CreateCSVFIle {
 
     private CreateCSVFIle() {
     }
 
-    public static void createCSVFile(final Map<String, List<String>> text, final String titulo) {
+    /**
+     * Method responsible for write a csv file with an adjacency list map
+     *
+     * @param map   this map contains a map with key = adjacency list and value = destination words list
+     * @param title this string contains the filename of the text read
+     */
+    public static void createCSVFile(final Map<String, List<String>> map, final String title) {
 
         final List<String[]> linhas = new ArrayList<>();
-        text.forEach((key, value) -> linhas.add(new String[]{key, value.toString().replaceAll("[\\[\\]]", "")}));
+        map.forEach((key, value) -> linhas.add(new String[]{key, value.toString().replaceAll("[\\[\\]]", "")}));
 
         try {
-            final Writer writer = Files.newBufferedWriter(Paths.get("src/main/java/com/mycompany/projetopoo/csvfiles/" + titulo + ".csv"));
+            final Writer writer = Files.newBufferedWriter(Paths.get("src/main/java/com/mycompany/projetopoo/csvfiles/" + title + ".csv"));
             try (final CSVWriter csvWriter = new CSVWriter(writer)) {
 
                 csvWriter.writeAll(linhas);
@@ -30,7 +39,7 @@ public class CreateCSVFIle {
             }
             writer.close();
         } catch (final IOException i) {
-            i.printStackTrace();
+            System.err.println("Error writing the csv file for the file: " + title + ".txt");
         }
     }
 }

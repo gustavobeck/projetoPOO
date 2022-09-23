@@ -6,13 +6,22 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * Class responsible for format a text
+ */
 public class FormatText {
 
     private FormatText() {
     }
 
-    public static List<String> splitAndFormatText(final String fileName) {
-        final var formatedText = formatText(fileName);
+    /**
+     * Method responsible for format a text -> format all text to lowercase, remove punctuation and turn a text into a string list
+     *
+     * @param text this string contains a text of a file that was read
+     * @return returns a string list from the words in the text
+     */
+    public static List<String> splitAndFormatText(final String text) {
+        final var formatedText = formatText(text);
 
         return splitWords(formatedText);
     }

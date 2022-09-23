@@ -11,11 +11,20 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+/**
+ * Class responsible for ordenate a text into an adjacency list map
+ */
 public class OrdenateList {
 
     private OrdenateList() {
     }
 
+    /**
+     * Method responsible for convert the string list of words in a map where: key = adjacency list and value = destination words list
+     *
+     * @param list this list contains all the words from the text read
+     * @return returns a adjacency list map
+     */
     public static Map<String, List<String>> ordinateList(final List<String> list) {
         final var words = new HashMap<String, List<String>>();
         final var alphabeticList = sortAndRemoveDuplicatedWords(list);
