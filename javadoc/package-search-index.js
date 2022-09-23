@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.mycompany.projetopoo.controller"},{"l":"com.mycompany.projetopoo.exceptions"},{"l":"com.mycompany.projetopoo.service"},{"l":"com.mycompany.projetopoo.usecase"}]
